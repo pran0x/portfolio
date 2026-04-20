@@ -1,0 +1,26 @@
+# Hey there, curious human 👋
+# If you're reading this, you probably broke something… or you're about to 😄
+
+Contact: mailto:security@pran0x.dev
+
+# Found a bug? You're awesome. Tell me about it!
+# I promise I won't panic (much).
+
+
+# If you report something cool, you might get:
+# - A shoutout 🏆
+# - My eternal gratitude 🙏
+# - Maybe even coffee if we ever meet ☕
+
+# Be nice, no chaos please:
+# - No data destruction
+# - No spamming
+# - No social engineering
+# Just responsible hacking vibes only ✌️
+
+Preferred-Languages: en, bn
+
+# This file is alive (probably)
+Expires: 2030-12-31T23:59:59.000Z
+
+# Thanks for helping make the internet a safer place 💙

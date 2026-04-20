@@ -1,0 +1,1452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Security Researcher | Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@300;400;500;600;700&family=Exo+2:wght@200;400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green: #00ff9f;
+    --green-dim: #00cc7a;
+    --green-dark: #003d25;
+    --red: #ff2d55;
+    --amber: #ffb300;
+    --bg: #060a0d;
+    --bg2: #0c1219;
+    --bg3: #111b24;
+    --border: rgba(0,255,159,0.15);
+    --text: #c8d8e8;
+    --muted: #5a7a8a;
+    --mono: 'Share Tech Mono', monospace;
+    --display: 'Rajdhani', sans-serif;
+    --body: 'Exo 2', sans-serif;
+    /* ─────────────────────────────────────────
+       LOGO BOX SIZE — change these two values
+       to resize all company logo boxes at once
+       Current size: 150px × 150px
+       Recommended range: 80px – 200px
+       ───────────────────────────────────────── */
+    --logo-size: 150px;
+    --logo-img-size: 150px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--body);
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: repeating-linear-gradient(
+      0deg, transparent, transparent 2px,
+      rgba(0,0,0,0.03) 2px, rgba(0,0,0,0.03) 4px
+    );
+    pointer-events: none;
+    z-index: 9999;
+  }
+
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(0,255,159,0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,255,159,0.02) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 3rem;
+    background: rgba(6,10,13,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo { font-family: var(--mono); font-size: 1rem; color: var(--green); }
+  .nav-logo span { color: var(--muted); }
+
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+
+  .nav-links a {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--green); }
+
+  /* ─── HERO ─── */
+  #hero {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 8rem 3rem 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: visible;
+  }
+
+  /* keep all text on the left so avatar doesn't overlap */
+  .hero-tag,
+  h1.hero-name,
+  .hero-title,
+  .hero-desc,
+  .hero-cta { max-width: 520px; }
+
+  .hero-tag {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    color: var(--green);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .hero-tag::before {
+    content: '';
+    display: inline-block;
+    width: 32px; height: 1px;
+    background: var(--green);
+  }
+
+  h1.hero-name {
+    font-family: var(--display);
+    font-size: clamp(3.5rem, 8vw, 7rem);
+    font-weight: 700;
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    color: #e8f4ff;
+    margin-bottom: 0.5rem;
+  }
+  h1.hero-name .accent { color: var(--green); }
+
+  .hero-title {
+    font-family: var(--mono);
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    color: var(--muted);
+    margin: 1.5rem 0 2.5rem;
+    min-height: 1.8em;
+  }
+
+  .cursor {
+    display: inline-block;
+    width: 10px; height: 1.1em;
+    background: var(--green);
+    vertical-align: middle;
+    margin-left: 3px;
+    animation: blink 0.9s step-end infinite;
+  }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+
+  .hero-desc {
+    color: var(--text);
+    font-weight: 200;
+    font-size: 1.05rem;
+    margin-bottom: 3rem;
+    opacity: 0.8;
+  }
+
+  .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+  .btn {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.85rem 2rem;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s;
+    display: inline-block;
+  }
+
+  .btn-primary {
+    background: var(--green);
+    color: #000;
+    clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
+  }
+  .btn-primary:hover { background: #fff; transform: translateY(-2px); }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--green);
+    border: 1px solid var(--green);
+    clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
+  }
+  .btn-outline:hover { background: rgba(0,255,159,0.07); transform: translateY(-2px); }
+
+  /* status bar */
+  .status-bar {
+    position: absolute;
+    bottom: 3rem; right: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: flex-end;
+  }
+  .status-item {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--green);
+    animation: pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.4;transform:scale(0.7)} }
+
+  /* ─── HERO AVATAR ─── */
+  .hero-avatar-wrap {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+  }
+
+  /* ─────────────────────────────
+     AVATAR SIZE — change here
+     Current: 380px × 380px
+     ───────────────────────────── */
+  .hero-avatar {
+    width: 380px;
+    height: 380px;
+    position: relative;
+    cursor: pointer;
+  }
+
+  .hero-avatar::before {
+    content: '';
+    position: absolute;
+    inset: -16px;
+    border-radius: 50%;
+    border: 1px dashed rgba(0,255,159,0.3);
+    animation: spinRing 12s linear infinite;
+  }
+
+  .hero-avatar::after {
+    content: '';
+    position: absolute;
+    inset: -6px;
+    border-radius: 50%;
+    border: 1px solid rgba(0,255,159,0.15);
+    transition: border-color 0.4s, box-shadow 0.4s;
+  }
+
+  .hero-avatar:hover::after {
+    border-color: var(--green);
+    box-shadow:
+      0 0 20px rgba(0,255,159,0.4),
+      0 0 60px rgba(0,255,159,0.15),
+      inset 0 0 30px rgba(0,255,159,0.05);
+  }
+
+  @keyframes spinRing {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+  }
+
+  .hero-avatar-img {
+    width: 100%; height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    border: 2px solid rgba(0,255,159,0.2);
+    transition: transform 0.4s ease, filter 0.4s ease, border-color 0.4s ease;
+    filter: grayscale(20%) brightness(0.9);
+  }
+
+  .hero-avatar:hover .hero-avatar-img {
+    transform: scale(1.04);
+    filter: grayscale(0%) brightness(1.05);
+    border-color: var(--green);
+  }
+
+  .hero-avatar-scan {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 3;
+  }
+
+  .hero-avatar-scan::after {
+    content: '';
+    position: absolute;
+    left: 0; width: 100%; height: 100%;
+    top: -100%;
+    background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(0,255,159,0.12) 50%,
+      transparent 100%
+    );
+    transition: top 0.6s ease;
+  }
+
+  .hero-avatar:hover .hero-avatar-scan::after { top: 100%; }
+
+  .hero-avatar-tag {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    color: var(--green);
+    text-align: center;
+    margin-top: 1.25rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  .hero-avatar-tag::before {
+    content: '';
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--green);
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  .hero-avatar-corner {
+    position: absolute;
+    width: 20px; height: 20px;
+    border-color: var(--green);
+    border-style: solid;
+    opacity: 0.5;
+    transition: opacity 0.3s, width 0.3s, height 0.3s;
+  }
+  .hero-avatar:hover .hero-avatar-corner { opacity: 1; width: 28px; height: 28px; }
+  .corner-tl { top: -4px; left: -4px; border-width: 2px 0 0 2px; }
+  .corner-tr { top: -4px; right: -4px; border-width: 2px 2px 0 0; }
+  .corner-bl { bottom: -4px; left: -4px; border-width: 0 0 2px 2px; }
+  .corner-br { bottom: -4px; right: -4px; border-width: 0 2px 2px 0; }
+
+  /* ─── SECTIONS ─── */
+  section {
+    position: relative;
+    z-index: 1;
+    padding: 6rem 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    color: var(--green);
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1; height: 1px;
+    background: var(--border);
+  }
+
+  h2.section-title {
+    font-family: var(--display);
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 700;
+    color: #e8f4ff;
+    margin-bottom: 1rem;
+    letter-spacing: -0.01em;
+  }
+
+  /* ─── HALL OF FAME ─── */
+  .hof-stats {
+    display: flex;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-bottom: 3rem;
+    width: fit-content;
+  }
+
+  .hof-stat-box {
+    background: var(--bg2);
+    padding: 1.25rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  .hof-num {
+    font-family: var(--display);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--green);
+    line-height: 1;
+  }
+
+  .hof-lbl {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    color: var(--muted);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  .companies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+
+  .company-card {
+    background: var(--bg2);
+    padding: 1.75rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+  }
+  .company-card:hover { background: var(--bg3); }
+
+  /* ─────────────────────────────────────────
+     LOGO BOX SIZE — change these two values
+     Current size: 150px × 150px
+     Recommended range: 80px – 200px
+     ───────────────────────────────────────── */
+  .c-logo {
+    width: var(--logo-size);
+    height: var(--logo-size);
+    border: 1px solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255,255,255,0.06);
+    border-radius: 12px;
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+    transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+    cursor: pointer;
+  }
+
+  .c-logo:hover {
+    border-color: var(--green) !important;
+    box-shadow: 0 0 20px rgba(0,255,159,0.3), 0 0 40px rgba(0,255,159,0.1);
+    transform: translateY(-6px) scale(1.06);
+  }
+
+  .c-logo::after {
+    content: '';
+    position: absolute;
+    top: -100%; left: 0;
+    width: 100%; height: 100%;
+    background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(0,255,159,0.18) 50%,
+      transparent 100%
+    );
+    transition: top 0.45s ease;
+    pointer-events: none;
+    z-index: 2;
+  }
+  .c-logo:hover::after { top: 100%; }
+
+  .c-logo img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.35s ease, filter 0.35s ease;
+    filter: grayscale(25%) brightness(0.95);
+  }
+  .c-logo:hover img {
+    transform: scale(1.1);
+    filter: grayscale(0%) brightness(1.15);
+  }
+
+  /* ─── ABOUT ─── */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    margin-top: 3rem;
+    align-items: start;
+  }
+
+  .about-text p {
+    color: var(--text);
+    opacity: 0.8;
+    margin-bottom: 1.25rem;
+    font-weight: 200;
+    line-height: 1.8;
+  }
+  .about-text p strong { color: var(--green); font-weight: 400; }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+
+  .stat-box {
+    background: var(--bg2);
+    padding: 1.5rem;
+    transition: background 0.2s;
+  }
+  .stat-box:hover { background: var(--bg3); }
+
+  .stat-num {
+    font-family: var(--display);
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--green);
+    display: block;
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    color: var(--muted);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-top: 0.4rem;
+    display: block;
+  }
+
+  .certs {
+    margin-top: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .cert-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    color: var(--muted);
+    padding: 0.6rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .cert-item .tag {
+    background: rgba(0,255,159,0.08);
+    border: 1px solid rgba(0,255,159,0.2);
+    color: var(--green);
+    font-size: 0.6rem;
+    padding: 0.2rem 0.5rem;
+    letter-spacing: 0.1em;
+  }
+
+  /* ─── SKILLS ─── */
+  .skills-container {
+    margin-top: 3rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .skill-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    padding: 2rem;
+    position: relative;
+    transition: border-color 0.3s, transform 0.2s;
+    overflow: hidden;
+  }
+
+  .skill-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px; height: 0;
+    background: var(--green);
+    transition: height 0.4s;
+  }
+  .skill-card:hover { border-color: rgba(0,255,159,0.4); transform: translateY(-4px); }
+  .skill-card:hover::before { height: 100%; }
+
+  .skill-icon { font-size: 1.5rem; margin-bottom: 1rem; display: block; }
+
+  .skill-card h3 {
+    font-family: var(--display);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #e8f4ff;
+    margin-bottom: 1rem;
+    letter-spacing: 0.05em;
+  }
+
+  .skill-list { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; }
+
+  .skill-list li {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .skill-list li::before { content: '>'; color: var(--green); font-size: 0.65rem; }
+
+  .skill-bar-section { margin-top: 4rem; }
+
+  .skill-bar-section h3 {
+    font-family: var(--display);
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #e8f4ff;
+    margin-bottom: 2rem;
+  }
+
+  .bar-group { margin-bottom: 1.2rem; }
+
+  .bar-meta { display: flex; justify-content: space-between; margin-bottom: 0.4rem; }
+
+  .bar-name { font-family: var(--mono); font-size: 0.75rem; color: var(--text); }
+  .bar-pct  { font-family: var(--mono); font-size: 0.72rem; color: var(--green); }
+
+  .bar-track { height: 3px; background: var(--bg3); position: relative; overflow: hidden; }
+
+  .bar-fill {
+    height: 100%;
+    background: var(--green);
+    animation: fillBar 1.5s ease forwards;
+    transform-origin: left;
+  }
+  @keyframes fillBar { from { width: 0 !important; } }
+
+  /* ─── PROJECTS ─── */
+  .projects-grid {
+    margin-top: 3rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .project-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    padding: 2rem;
+    position: relative;
+    transition: border-color 0.3s, transform 0.2s;
+  }
+  .project-card:hover { border-color: rgba(0,255,159,0.4); transform: translateY(-4px); }
+
+  .project-card.featured {
+    grid-column: span 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: start;
+  }
+
+  .project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+  }
+
+  .project-type {
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--green);
+    border: 1px solid rgba(0,255,159,0.25);
+    padding: 0.25rem 0.6rem;
+  }
+
+  .project-severity { font-family: var(--mono); font-size: 0.6rem; padding: 0.25rem 0.6rem; }
+
+  .sev-critical { background: rgba(255,45,85,0.15);  color: var(--red);   border: 1px solid rgba(255,45,85,0.3); }
+  .sev-high     { background: rgba(255,179,0,0.1);   color: var(--amber); border: 1px solid rgba(255,179,0,0.3); }
+  .sev-medium   { background: rgba(0,255,159,0.08);  color: var(--green); border: 1px solid rgba(0,255,159,0.2); }
+
+  .project-card h3 {
+    font-family: var(--display);
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #e8f4ff;
+    margin-bottom: 0.75rem;
+  }
+
+  .project-card p {
+    font-size: 0.9rem;
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+  }
+
+  .project-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+
+  .tag-item {
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    color: var(--muted);
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    padding: 0.25rem 0.6rem;
+    letter-spacing: 0.08em;
+  }
+
+  .project-number {
+    font-family: var(--display);
+    font-size: 5rem;
+    font-weight: 700;
+    color: rgba(0,255,159,0.06);
+    position: absolute;
+    bottom: 1rem; right: 1.5rem;
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  /* ─── TERMINAL ─── */
+  .terminal {
+    background: #000;
+    border: 1px solid rgba(0,255,159,0.2);
+    margin-top: 4rem;
+    overflow: hidden;
+  }
+
+  .terminal-bar {
+    background: var(--bg3);
+    padding: 0.6rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-bottom: 1px solid rgba(0,255,159,0.1);
+  }
+
+  .t-dot { width: 10px; height: 10px; border-radius: 50%; }
+  .t-dot-r { background: #ff5f57; }
+  .t-dot-y { background: #febc2e; }
+  .t-dot-g { background: #28c840; }
+
+  .terminal-title {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    color: var(--muted);
+    margin-left: auto;
+    margin-right: auto;
+    letter-spacing: 0.1em;
+  }
+
+  .terminal-body {
+    padding: 1.5rem;
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    line-height: 1.9;
+    color: #a0c8a0;
+  }
+
+  .t-prompt { color: var(--green); }
+  .t-cmd    { color: #e0e0e0; }
+  .t-comment{ color: #3a5a3a; }
+  .t-output { color: #7a9a7a; padding-left: 1rem; }
+  .t-red    { color: var(--red); }
+  .t-amber  { color: var(--amber); }
+  .t-green  { color: var(--green); }
+  .t-blue   { color: #58a6ff; }
+
+  /* ─── CONTACT ─── */
+  #contact { border-top: 1px solid var(--border); }
+
+  .contact-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    margin-top: 3rem;
+    align-items: start;
+  }
+
+  .contact-intro {
+    color: var(--text);
+    opacity: 0.8;
+    font-weight: 200;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+  }
+
+  .contact-links { display: flex; flex-direction: column; gap: 0.75rem; }
+
+  .contact-link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-family: var(--mono);
+    font-size: 0.8rem;
+    color: var(--muted);
+    text-decoration: none;
+    padding: 1rem 1.25rem;
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .contact-link:hover { border-color: rgba(0,255,159,0.4); color: var(--green); }
+
+  .contact-link-icon { color: var(--green); font-size: 1rem; width: 20px; text-align: center; }
+
+  .pgp-block { background: var(--bg2); border: 1px solid var(--border); padding: 2rem; }
+
+  .pgp-block h4 {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    color: var(--green);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+
+  .pgp-key {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    color: var(--muted);
+    word-break: break-all;
+    line-height: 1.8;
+  }
+
+/* ─── FOOTER RESOURCES ─── */
+.footer-resources {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--border);
+  max-width: 1200px;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.resource-col h5 {
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  color: var(--green);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+.resource-col:last-child {
+  text-align: right;
+}
+
+.resource-col:last-child .resource-links a {
+  justify-content: flex-end;
+}
+.resource-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.resource-links a {
+  font-family: var(--mono);
+  font-size: 0.9rem; 
+  color: var(--muted);
+  text-decoration: none;
+  letter-spacing: 0.08em;
+  padding: 0.3rem 0;
+  transition: color 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.resource-links a::before {
+  content: '//';
+  color: var(--green-dark);
+  font-size: 0.6rem;
+  transition: color 0.2s;
+}
+
+.resource-links a:hover { color: var(--green); }
+.resource-links a:hover::before { color: var(--green); }
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+  .footer-left  { font-family: var(--mono); font-size: 0.8rem; color: var(--muted); }
+  .footer-right { font-family: var(--mono); font-size: 0.8rem; color: var(--muted); }
+
+  /* ─── ANIMATIONS ─── */
+  .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .fade-in.visible { opacity: 1; transform: none; }
+
+  /* ─── SCROLLBAR ─── */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--green-dark); }
+  ::-webkit-scrollbar-thumb:hover { background: var(--green-dim); }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    #hero { padding: 7rem 1.5rem 3rem; }
+    section { padding: 4rem 1.5rem; }
+    .hero-avatar-wrap { display: none; }
+    .hero-tag, h1.hero-name, .hero-title, .hero-desc, .hero-cta { max-width: 100%; }
+    .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .skills-container { grid-template-columns: 1fr; }
+    .projects-grid { grid-template-columns: 1fr; }
+    .project-card.featured { grid-column: span 1; grid-template-columns: 1fr; }
+    .contact-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+    footer { flex-direction: column; gap: 1rem; text-align: center; }
+    .status-bar { display: none; }
+  }
+
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo"><span>~/</span>pran0x</div>
+  <ul class="nav-links">
+    <li><a href="#hof">hall of fame</a></li>
+    <li><a href="#about">about</a></li>
+    <li><a href="#skills">skills</a></li>
+    <li><a href="#work">work</a></li>
+    <li><a href="#contact">contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-tag">Security Researcher</div>
+  <h1 class="hero-name">
+    PRANTO<br><span class="accent">KUMAR</span><br>SHIL
+  </h1>
+  <p class="hero-title" id="typewriter"></p>
+  <p class="hero-desc">
+    Penetration tester and security researcher specializing in web application security, network infrastructure, and vulnerability research. I break things to help build them better.
+  </p>
+  <div class="hero-cta">
+    <a href="#work" class="btn btn-primary">View My Work</a>
+    <a href="#contact" class="btn btn-outline">Get In Touch</a>
+  </div>
+
+  <!-- HERO AVATAR — replace src with your actual photo -->
+  <div class="hero-avatar-wrap">
+    <div class="hero-avatar">
+      <div class="hero-avatar-corner corner-tl"></div>
+      <div class="hero-avatar-corner corner-tr"></div>
+      <div class="hero-avatar-corner corner-bl"></div>
+      <div class="hero-avatar-corner corner-br"></div>
+      <div class="hero-avatar-scan"></div>
+      <!-- ── YOUR PHOTO HERE — replace src ── -->
+      <img
+        class="hero-avatar-img"
+        src="https://avatars.githubusercontent.com/u/139096157?v=4"
+        alt="Pranto Kumar Shil"
+      >
+    </div>
+    <div class="hero-avatar-tag">pran0x // available</div>
+  </div>
+
+  <div class="status-bar">
+    <div class="status-item"><span class="dot"></span> Available for engagements</div>
+    <div class="status-item">PGP: 0xDEADBEEF</div>
+    <div class="status-item">TZ: UTC+6 (Dhaka)</div>
+  </div>
+</section>
+
+<!-- HALL OF FAME -->
+<section id="hof">
+  <p class="section-label">05 // Hall of Fame</p>
+  <h2 class="section-title">Responsible Disclosures</h2>
+
+  <div class="hof-intro fade-in">
+    <p style="color: var(--muted); font-family: var(--mono); font-size: 0.8rem; margin-bottom: 2.5rem;">
+      Vulnerabilities responsibly disclosed to organizations worldwide. All details withheld per coordinated disclosure agreements.
+    </p>
+    <div class="hof-stats">
+      <div class="hof-stat-box">
+        <span class="hof-num">12+</span>
+        <span class="hof-lbl">Companies Notified</span>
+      </div>
+      <div class="hof-stat-box">
+        <span class="hof-num">3</span>
+        <span class="hof-lbl">Critical Findings</span>
+      </div>
+      <div class="hof-stat-box">
+        <span class="hof-num">100%</span>
+        <span class="hof-lbl">Responsible Disclosure</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="companies-grid fade-in">
+    <div class="company-card">
+      <div class="c-logo" style="border-color: rgba(0,120,212,0.3);">
+        <img src="https://cdn.vectorstock.com/i/500p/60/05/meta-logo-vector-41876005.jpg" alt="Meta">
+      </div>
+    </div>
+    <div class="company-card">
+      <div class="c-logo" style="border-color: rgba(252,76,2,0.3);">
+        <img src="https://cdn.mos.cms.futurecdn.net/F3dodJA8ktyWV8J5Q2rVaR.jpg" alt="NASA">
+      </div>
+    </div>
+    <div class="company-card">
+      <div class="c-logo" style="border-color: rgba(0,180,216,0.3);">
+        <img src="https://media.designrush.com/inspiration_images/136092/conversions/_1521662324_188_UbisoftLogo-desktop.jpg" alt="Ubisoft">
+      </div>
+    </div>
+    <div class="company-card">
+      <div class="c-logo" style="border-color: rgba(0,120,212,0.3);">
+        <img src="https://cdn.dribbble.com/userupload/9750979/file/original-65029aa75ed4d651877a03287b322dc9.png?resize=400x300&vertical=center" alt="Activision">
+      </div>
+    </div>
+    <div class="company-card">
+      <div class="c-logo" style="border-color: rgba(255,153,0,0.3);">
+        <img src="https://discovertemplate.com/wp-content/uploads/2024/01/Activision.jpg" alt="Amazon">
+      </div>
+    </div>
+  </div>
+
+  <p style="font-family: var(--mono); font-size: 0.65rem; color: var(--green-dark); text-align: center; margin-top: 2rem; letter-spacing: 0.08em;">
+    // Details withheld per responsible disclosure policy
+  </p>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <p class="section-label">01 // About</p>
+  <h2 class="section-title">Who I Am</h2>
+
+  <div class="about-grid fade-in">
+    <div class="about-text">
+      <p>I'm a security researcher with deep expertise in <strong>penetration testing</strong>, <strong>web application security</strong>, and <strong>network security</strong>. My work sits at the intersection of offensive and defensive security — understanding how attackers think to build more resilient systems.</p>
+      <p>With a background in both red team operations and vulnerability research, I've worked with organizations across fintech, healthcare, and critical infrastructure to identify and remediate high-severity vulnerabilities before adversaries can exploit them.</p>
+      <p>I contribute to the security community through responsible disclosure, CTF competitions, and open-source tooling for the offensive security community.</p>
+      <div class="certs">
+        <div class="cert-item"><span class="tag">ACTIVE</span> OSCP — Offensive Security Certified Professional</div>
+        <div class="cert-item"><span class="tag">ACTIVE</span> eJPT — eLearnSecurity Junior Penetration Tester</div>
+        <div class="cert-item"><span class="tag">ACTIVE</span> CEH — Certified Ethical Hacker</div>
+        <div class="cert-item"><span class="tag">PURSUING</span> OSWE — Web Expert</div>
+      </div>
+    </div>
+    <div>
+      <div class="stats-grid">
+        <div class="stat-box">
+          <span class="stat-num">50+</span>
+          <span class="stat-label">CVEs Reported</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-num">120+</span>
+          <span class="stat-label">Pentest Engagements</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-num">$40K+</span>
+          <span class="stat-label">Bug Bounty Earned</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-num">Top 1%</span>
+          <span class="stat-label">HackTheBox Rank</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <p class="section-label">02 // Skills</p>
+  <h2 class="section-title">Capabilities</h2>
+
+  <div class="skills-container fade-in">
+    <div class="skill-card">
+      <span class="skill-icon">🌐</span>
+      <h3>Web Security</h3>
+      <ul class="skill-list">
+        <li>OWASP Top 10 & Beyond</li>
+        <li>SQL / NoSQL Injection</li>
+        <li>XSS, CSRF, SSRF</li>
+        <li>OAuth & JWT Attacks</li>
+        <li>API Security Testing</li>
+        <li>GraphQL Exploitation</li>
+        <li>Business Logic Flaws</li>
+        <li>Burp Suite Pro</li>
+      </ul>
+    </div>
+    <div class="skill-card">
+      <span class="skill-icon">🔗</span>
+      <h3>Network Security</h3>
+      <ul class="skill-list">
+        <li>Network Reconnaissance</li>
+        <li>Protocol Analysis</li>
+        <li>Man-in-the-Middle Attacks</li>
+        <li>Firewall / IDS Evasion</li>
+        <li>Active Directory Attacks</li>
+        <li>Lateral Movement</li>
+        <li>Wireshark / tcpdump</li>
+        <li>Nmap / Masscan</li>
+      </ul>
+    </div>
+    <div class="skill-card">
+      <span class="skill-icon">🎯</span>
+      <h3>Penetration Testing</h3>
+      <ul class="skill-list">
+        <li>Red Team Operations</li>
+        <li>Physical Security</li>
+        <li>Social Engineering</li>
+        <li>Post-Exploitation</li>
+        <li>Privilege Escalation</li>
+        <li>Metasploit Framework</li>
+        <li>Custom Exploit Dev</li>
+        <li>Full Kill-Chain Attacks</li>
+      </ul>
+    </div>
+    <div class="skill-card">
+      <span class="skill-icon">💻</span>
+      <h3>Programming</h3>
+      <ul class="skill-list">
+        <li>Python (exploit scripts)</li>
+        <li>Bash / PowerShell</li>
+        <li>JavaScript / Node.js</li>
+        <li>C / C++ (low-level)</li>
+        <li>Go (tooling)</li>
+        <li>PHP (source review)</li>
+        <li>Assembly (x86/x64)</li>
+      </ul>
+    </div>
+    <div class="skill-card">
+      <span class="skill-icon">🔓</span>
+      <h3>Vulnerability Research</h3>
+      <ul class="skill-list">
+        <li>CVE Research & Reporting</li>
+        <li>0-day Discovery</li>
+        <li>Reverse Engineering</li>
+        <li>Binary Analysis</li>
+        <li>Fuzzing Techniques</li>
+        <li>IDA Pro / Ghidra</li>
+        <li>Responsible Disclosure</li>
+      </ul>
+    </div>
+    <div class="skill-card">
+      <span class="skill-icon">☁️</span>
+      <h3>Cloud & Infrastructure</h3>
+      <ul class="skill-list">
+        <li>AWS / Azure Pentest</li>
+        <li>Container Escapes</li>
+        <li>Kubernetes Attacks</li>
+        <li>IAM Misconfiguration</li>
+        <li>Serverless Security</li>
+        <li>S3 / Blob Exposure</li>
+        <li>CI/CD Pipeline Attacks</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="skill-bar-section fade-in">
+    <h3>Proficiency</h3>
+    <div class="bar-group">
+      <div class="bar-meta"><span class="bar-name">Web Application Penetration Testing</span><span class="bar-pct">95%</span></div>
+      <div class="bar-track"><div class="bar-fill" style="width:95%"></div></div>
+    </div>
+    <div class="bar-group">
+      <div class="bar-meta"><span class="bar-name">Network Security & Recon</span><span class="bar-pct">90%</span></div>
+      <div class="bar-track"><div class="bar-fill" style="width:90%"></div></div>
+    </div>
+    <div class="bar-group">
+      <div class="bar-meta"><span class="bar-name">Vulnerability Research</span><span class="bar-pct">85%</span></div>
+      <div class="bar-track"><div class="bar-fill" style="width:85%"></div></div>
+    </div>
+    <div class="bar-group">
+      <div class="bar-meta"><span class="bar-name">Python / Exploit Development</span><span class="bar-pct">88%</span></div>
+      <div class="bar-track"><div class="bar-fill" style="width:88%"></div></div>
+    </div>
+    <div class="bar-group">
+      <div class="bar-meta"><span class="bar-name">Cloud Security</span><span class="bar-pct">75%</span></div>
+      <div class="bar-track"><div class="bar-fill" style="width:75%"></div></div>
+    </div>
+    <div class="bar-group">
+      <div class="bar-meta"><span class="bar-name">Reverse Engineering</span><span class="bar-pct">70%</span></div>
+      <div class="bar-track"><div class="bar-fill" style="width:70%"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- WORK -->
+<section id="work">
+  <p class="section-label">03 // Work</p>
+  <h2 class="section-title">Research & Findings</h2>
+
+  <div class="projects-grid fade-in">
+    <div class="project-card featured">
+      <div>
+        <div class="project-header">
+          <span class="project-type">CVE Research</span>
+          <span class="project-severity sev-critical">CRITICAL — CVSS 9.8</span>
+        </div>
+        <h3>Auth Bypass in Enterprise SSO Platform</h3>
+        <p>Discovered a critical authentication bypass vulnerability in a widely-deployed enterprise SSO platform affecting 10,000+ organizations. The flaw allowed full account takeover via a JWT signature confusion attack without valid credentials.</p>
+        <div class="project-tags">
+          <span class="tag-item">JWT</span>
+          <span class="tag-item">Auth Bypass</span>
+          <span class="tag-item">CVE-2024-XXXX</span>
+          <span class="tag-item">Responsible Disclosure</span>
+          <span class="tag-item">$12,000 Bounty</span>
+        </div>
+      </div>
+      <div>
+        <div class="terminal">
+          <div class="terminal-bar">
+            <div class="t-dot t-dot-r"></div>
+            <div class="t-dot t-dot-y"></div>
+            <div class="t-dot t-dot-g"></div>
+            <span class="terminal-title">exploit.py</span>
+          </div>
+          <div class="terminal-body">
+<span class="t-comment"># JWT alg:none confusion attack</span><br>
+<span class="t-prompt">$</span> <span class="t-cmd">python3 exploit.py --target https://target.sso/</span><br>
+<br>
+<span class="t-output">[*] Fetching JWT from /api/auth...</span><br>
+<span class="t-output">[*] Detected algorithm: RS256</span><br>
+<span class="t-output">[!] Testing alg confusion...</span><br>
+<span class="t-output"><span class="t-green">[+] Vulnerable! Accepted unsigned token</span></span><br>
+<span class="t-output"><span class="t-green">[+] Access granted as: admin@corp.internal</span></span><br>
+<span class="t-output"><span class="t-red">[!] CRITICAL — Report immediately</span></span>
+          </div>
+        </div>
+      </div>
+      <span class="project-number">01</span>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header">
+        <span class="project-type">Bug Bounty</span>
+        <span class="project-severity sev-high">HIGH — CVSS 8.1</span>
+      </div>
+      <h3>SSRF to Internal AWS Metadata</h3>
+      <p>Chained an open redirect with an SSRF vulnerability to exfiltrate AWS EC2 instance metadata including IAM credentials, leading to full cloud account compromise.</p>
+      <div class="project-tags">
+        <span class="tag-item">SSRF</span>
+        <span class="tag-item">AWS</span>
+        <span class="tag-item">Open Redirect</span>
+        <span class="tag-item">Cloud</span>
+      </div>
+      <span class="project-number">02</span>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header">
+        <span class="project-type">Network Pentest</span>
+        <span class="project-severity sev-critical">CRITICAL</span>
+      </div>
+      <h3>AD Domain Takeover via Kerberoasting</h3>
+      <p>Full Active Directory domain compromise achieved during red team engagement by chaining Kerberoasting, password spraying, and DCSync attack to gain Domain Admin.</p>
+      <div class="project-tags">
+        <span class="tag-item">Active Directory</span>
+        <span class="tag-item">Kerberoasting</span>
+        <span class="tag-item">DCSync</span>
+        <span class="tag-item">Red Team</span>
+      </div>
+      <span class="project-number">03</span>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header">
+        <span class="project-type">Open Source Tool</span>
+        <span class="project-severity sev-medium">PUBLIC</span>
+      </div>
+      <h3>AutoRecon-Web — Automated Web Recon</h3>
+      <p>Built an open-source automated web reconnaissance framework integrating 30+ tools into a unified pipeline. 2,000+ GitHub stars. Used by CTF players and pentesters worldwide.</p>
+      <div class="project-tags">
+        <span class="tag-item">Python</span>
+        <span class="tag-item">OSS</span>
+        <span class="tag-item">Automation</span>
+        <span class="tag-item">2K+ Stars</span>
+      </div>
+      <span class="project-number">04</span>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header">
+        <span class="project-type">CTF</span>
+        <span class="project-severity sev-medium">1ST PLACE</span>
+      </div>
+      <h3>CTF Champion — NationalCyberSec BD 2024</h3>
+      <p>Captured first place in the National Cybersecurity CTF Bangladesh 2024, solving 47 of 50 challenges across web, forensics, cryptography, and binary exploitation.</p>
+      <div class="project-tags">
+        <span class="tag-item">CTF</span>
+        <span class="tag-item">Web</span>
+        <span class="tag-item">Crypto</span>
+        <span class="tag-item">Pwn</span>
+      </div>
+      <span class="project-number">05</span>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <p class="section-label">04 // Contact</p>
+  <h2 class="section-title">Get In Touch</h2>
+
+  <div class="contact-layout fade-in">
+    <div>
+      <p class="contact-intro">
+        Available for penetration testing engagements, bug bounty collaborations, security consulting, and responsible disclosure conversations. Response time typically within 24 hours.
+      </p>
+      <div class="contact-links">
+        <a href="mailto:prantokumar.net@gmail.com" class="contact-link">
+          <span class="contact-link-icon">✉</span>
+          Contact with me via Email
+        </a>
+        <a href="https://github.com/pran0x" class="contact-link">
+          <span class="contact-link-icon">⌥</span>
+          github.com
+        </a>
+        <a href="https://linkedin.com/in/pran0x" class="contact-link">
+          <span class="contact-link-icon">◈</span>
+          linkedin.com
+        </a>
+        <a href="https://twitter.com/pran0x" class="contact-link">
+          <span class="contact-link-icon">◉</span>
+          X / Twitter
+        </a>
+        <a href="https://hackerone.com/pran0x" class="contact-link">
+          <span class="contact-link-icon">◎</span>
+          HackerOne Profile
+        </a>
+      </div>
+    </div>
+    <div class="pgp-block">
+      <h4>// PGP Public Key</h4>
+      <p class="pgp-key">
+        -----BEGIN PGP PUBLIC KEY BLOCK-----<br><br>
+        mQINBF...REPLACE WITH YOUR ACTUAL PGP KEY...ABAAKCRAm<br>
+        7gK3xQRpAJ9...XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX<br>
+        Key ID: 0xDEADBEEF<br>
+        Fingerprint: XXXX XXXX XXXX XXXX XXXX<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;XXXX XXXX XXXX XXXX XXXX<br><br>
+        -----END PGP PUBLIC KEY BLOCK-----
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<!-- FOOTER -->
+<footer>
+  <div class="footer-resources">
+    <div class="resource-col">
+      <h5>// My Learning Journey</h5>
+      <div class="resource-links">
+        <a href="https://www.hackerone.com/start-a-bug-bounty-program">Start Bug Bounty [For NewComers]</a>
+        <a href="https://portswigger.net/web-security">PortSwigger Web Academy</a>
+        <a href="https://profile.hackthebox.com/profile/019d59a9-289d-7244-8ed2-9b63124f0587">Hack The Box</a>
+        <a href="https://tryhackme.com/p/pran0x">TryHackMe</a>
+        <a href="https://app.hackviser.com/profile/pran0x">Hackviser</a>
+        <a href="https://www.linkedin.com/company/hackalypse/">Hackalypse</a>
+      </div>
+    </div>
+    <div class="resource-col">
+      <h5>// Find Me Here</h5>
+      <div class="resource-links">
+        <a href="https://www.bugcrowd.com">BugCrowd</a>
+        <a href="https://www.yeswehack.com">YesWeHack</a>
+        <a href="https://www.intigriti.com">Intigriti</a>
+        <a href="https://www.openbugbounty.org/researchers/pran0x/">Open Bug Bounty</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-left">© 2026 pran0x // All rights reserved</span>
+    <span class="footer-right">Built with &lt;/&gt; and paranoia</span>
+  </div>
+</footer>
+
+<script>
+  const phrases = [
+    'Penetration Tester',
+    'Web Security Researcher',
+    'Network Security Engineer',
+    'Vulnerability Hunter',
+    'Red Team Operator'
+  ];
+  let pIdx = 0, cIdx = 0, deleting = false;
+  const el = document.getElementById('typewriter');
+
+  function type() {
+    const cur = phrases[pIdx];
+    if (!deleting) {
+      el.innerHTML = cur.slice(0, cIdx + 1) + '<span class="cursor"></span>';
+      cIdx++;
+      if (cIdx === cur.length) { deleting = true; setTimeout(type, 1800); return; }
+    } else {
+      el.innerHTML = cur.slice(0, cIdx - 1) + '<span class="cursor"></span>';
+      cIdx--;
+      if (cIdx === 0) { deleting = false; pIdx = (pIdx + 1) % phrases.length; }
+    }
+    setTimeout(type, deleting ? 45 : 85);
+  }
+  type();
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // auto scroll to top on every page load
+  // window.onbeforeunload = function() {
+  //   window.scrollTo(0, 0);
+  // };
+
+  // history.scrollRestoration = 'manual';
+  // window.scrollTo({ top: 0, behavior: 'instant' });
+</script>
+</body>
+</html>
