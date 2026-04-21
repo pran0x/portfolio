@@ -7,26 +7,20 @@
 <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@300;400;500;600;700&family=Exo+2:wght@200;400;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --green: #00ff9f;
-    --green-dim: #00cc7a;
-    --green-dark: #003d25;
+    --green: #ff002b;
+    --green-dim: #cc0011;
+    --green-dark: #3d000f;
     --red: #ff2d55;
     --amber: #ffb300;
     --bg: #060a0d;
     --bg2: #0c1219;
     --bg3: #111b24;
-    --border: rgba(0,255,159,0.15);
+    --border: rgba(255,0,43,0.15);
     --text: #c8d8e8;
     --muted: #5a7a8a;
     --mono: 'Share Tech Mono', monospace;
     --display: 'Rajdhani', sans-serif;
     --body: 'Exo 2', sans-serif;
-    /* ─────────────────────────────────────────
-       LOGO BOX SIZE — change these two values
-       to resize all company logo boxes at once
-       Current size: 150px × 150px
-       Recommended range: 80px – 200px
-       ───────────────────────────────────────── */
     --logo-size: 150px;
     --logo-img-size: 150px;
   }
@@ -60,8 +54,8 @@
     position: fixed;
     inset: 0;
     background-image:
-      linear-gradient(rgba(0,255,159,0.02) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0,255,159,0.02) 1px, transparent 1px);
+      linear-gradient(rgba(255,0,43,0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,0,43,0.02) 1px, transparent 1px);
     background-size: 40px 40px;
     pointer-events: none;
     z-index: 0;
@@ -111,7 +105,6 @@
     overflow: visible;
   }
 
-  /* keep all text on the left so avatar doesn't overlap */
   .hero-tag,
   h1.hero-name,
   .hero-title,
@@ -190,20 +183,19 @@
 
   .btn-primary {
     background: var(--green);
-    color: #000;
+    color: #fff;
     clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
   }
-  .btn-primary:hover { background: #fff; transform: translateY(-2px); }
-
+.btn-primary:hover { background: #ffffff; color: #000; transform: translateY(-2px); box-shadow: 0 0 24px rgba(255,0,43,0.4); }
   .btn-outline {
     background: transparent;
     color: var(--green);
     border: 1px solid var(--green);
     clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
   }
-  .btn-outline:hover { background: rgba(0,255,159,0.07); transform: translateY(-2px); }
-
-  /* status bar */
+.btn-outline:hover { background: rgba(255,0,43,0.1); color: #fff; border-color: var(--green); transform: translateY(-2px); box-shadow: 0 0 20px rgba(255,0,43,0.4); }
+  
+/* status bar */
   .status-bar {
     position: absolute;
     bottom: 3rem; right: 3rem;
@@ -237,10 +229,6 @@
     z-index: 2;
   }
 
-  /* ─────────────────────────────
-     AVATAR SIZE — change here
-     Current: 380px × 380px
-     ───────────────────────────── */
   .hero-avatar {
     width: 380px;
     height: 380px;
@@ -253,7 +241,7 @@
     position: absolute;
     inset: -16px;
     border-radius: 50%;
-    border: 1px dashed rgba(0,255,159,0.3);
+    border: 1px dashed rgba(255,0,43,0.35);
     animation: spinRing 12s linear infinite;
   }
 
@@ -262,16 +250,16 @@
     position: absolute;
     inset: -6px;
     border-radius: 50%;
-    border: 1px solid rgba(0,255,159,0.15);
+    border: 1px solid rgba(255,0,43,0.2);
     transition: border-color 0.4s, box-shadow 0.4s;
   }
 
   .hero-avatar:hover::after {
     border-color: var(--green);
     box-shadow:
-      0 0 20px rgba(0,255,159,0.4),
-      0 0 60px rgba(0,255,159,0.15),
-      inset 0 0 30px rgba(0,255,159,0.05);
+      0 0 20px rgba(255,0,43,0.5),
+      0 0 60px rgba(255,0,43,0.2),
+      inset 0 0 30px rgba(255,0,43,0.08);
   }
 
   @keyframes spinRing {
@@ -285,7 +273,7 @@
     object-fit: cover;
     object-position: center top;
     display: block;
-    border: 2px solid rgba(0,255,159,0.2);
+    border: 2px solid rgba(255,0,43,0.25);
     transition: transform 0.4s ease, filter 0.4s ease, border-color 0.4s ease;
     filter: grayscale(20%) brightness(0.9);
   }
@@ -313,7 +301,7 @@
     background: linear-gradient(
       to bottom,
       transparent 0%,
-      rgba(0,255,159,0.12) 50%,
+      rgba(255,0,43,0.15) 50%,
       transparent 100%
     );
     transition: top 0.6s ease;
@@ -443,11 +431,6 @@
   }
   .company-card:hover { background: var(--bg3); }
 
-  /* ─────────────────────────────────────────
-     LOGO BOX SIZE — change these two values
-     Current size: 150px × 150px
-     Recommended range: 80px – 200px
-     ───────────────────────────────────────── */
   .c-logo {
     width: var(--logo-size);
     height: var(--logo-size);
@@ -466,7 +449,7 @@
 
   .c-logo:hover {
     border-color: var(--green) !important;
-    box-shadow: 0 0 20px rgba(0,255,159,0.3), 0 0 40px rgba(0,255,159,0.1);
+    box-shadow: 0 0 20px rgba(255,0,43,0.35), 0 0 40px rgba(255,0,43,0.12);
     transform: translateY(-6px) scale(1.06);
   }
 
@@ -478,7 +461,7 @@
     background: linear-gradient(
       to bottom,
       transparent 0%,
-      rgba(0,255,159,0.18) 50%,
+      rgba(255,0,43,0.2) 50%,
       transparent 100%
     );
     transition: top 0.45s ease;
@@ -492,7 +475,7 @@
     object-fit: cover;
     display: block;
     transition: transform 0.35s ease, filter 0.35s ease;
-    filter: grayscale(25%) brightness(0.95);
+    filter: grayscale(30%) brightness(0.9);
   }
   .c-logo:hover img {
     transform: scale(1.1);
@@ -570,8 +553,8 @@
   }
 
   .cert-item .tag {
-    background: rgba(0,255,159,0.08);
-    border: 1px solid rgba(0,255,159,0.2);
+    background: rgba(255,0,43,0.1);
+    border: 1px solid rgba(255,0,43,0.25);
     color: var(--green);
     font-size: 0.6rem;
     padding: 0.2rem 0.5rem;
@@ -603,7 +586,7 @@
     background: var(--green);
     transition: height 0.4s;
   }
-  .skill-card:hover { border-color: rgba(0,255,159,0.4); transform: translateY(-4px); }
+  .skill-card:hover { border-color: rgba(255,0,43,0.4); transform: translateY(-4px); }
   .skill-card:hover::before { height: 100%; }
 
   .skill-icon { font-size: 1.5rem; margin-bottom: 1rem; display: block; }
@@ -653,6 +636,7 @@
     background: var(--green);
     animation: fillBar 1.5s ease forwards;
     transform-origin: left;
+    box-shadow: 0 0 8px rgba(255,0,43,0.5);
   }
   @keyframes fillBar { from { width: 0 !important; } }
 
@@ -671,7 +655,7 @@
     position: relative;
     transition: border-color 0.3s, transform 0.2s;
   }
-  .project-card:hover { border-color: rgba(0,255,159,0.4); transform: translateY(-4px); }
+  .project-card:hover { border-color: rgba(255,0,43,0.4); transform: translateY(-4px); }
 
   .project-card.featured {
     grid-column: span 2;
@@ -694,15 +678,15 @@
     letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--green);
-    border: 1px solid rgba(0,255,159,0.25);
+    border: 1px solid rgba(255,0,43,0.3);
     padding: 0.25rem 0.6rem;
   }
 
   .project-severity { font-family: var(--mono); font-size: 0.6rem; padding: 0.25rem 0.6rem; }
 
-  .sev-critical { background: rgba(255,45,85,0.15);  color: var(--red);   border: 1px solid rgba(255,45,85,0.3); }
+  .sev-critical { background: rgba(255,45,85,0.15);  color: #ff4d6d;   border: 1px solid rgba(255,45,85,0.35); }
   .sev-high     { background: rgba(255,179,0,0.1);   color: var(--amber); border: 1px solid rgba(255,179,0,0.3); }
-  .sev-medium   { background: rgba(0,255,159,0.08);  color: var(--green); border: 1px solid rgba(0,255,159,0.2); }
+  .sev-medium   { background: rgba(255,0,43,0.08);   color: var(--green); border: 1px solid rgba(255,0,43,0.25); }
 
   .project-card h3 {
     font-family: var(--display);
@@ -735,7 +719,7 @@
     font-family: var(--display);
     font-size: 5rem;
     font-weight: 700;
-    color: rgba(0,255,159,0.06);
+    color: rgba(255,0,43,0.05);
     position: absolute;
     bottom: 1rem; right: 1.5rem;
     line-height: 1;
@@ -746,7 +730,7 @@
   /* ─── TERMINAL ─── */
   .terminal {
     background: #000;
-    border: 1px solid rgba(0,255,159,0.2);
+    border: 1px solid rgba(255,0,43,0.25);
     margin-top: 4rem;
     overflow: hidden;
   }
@@ -757,7 +741,7 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    border-bottom: 1px solid rgba(0,255,159,0.1);
+    border-bottom: 1px solid rgba(255,0,43,0.15);
   }
 
   .t-dot { width: 10px; height: 10px; border-radius: 50%; }
@@ -779,14 +763,14 @@
     font-family: var(--mono);
     font-size: 0.78rem;
     line-height: 1.9;
-    color: #a0c8a0;
+    color: #c08080;
   }
 
   .t-prompt { color: var(--green); }
   .t-cmd    { color: #e0e0e0; }
-  .t-comment{ color: #3a5a3a; }
-  .t-output { color: #7a9a7a; padding-left: 1rem; }
-  .t-red    { color: var(--red); }
+  .t-comment{ color: #5a2020; }
+  .t-output { color: #9a6060; padding-left: 1rem; }
+  .t-red    { color: #ff4d6d; }
   .t-amber  { color: var(--amber); }
   .t-green  { color: var(--green); }
   .t-blue   { color: #58a6ff; }
@@ -823,9 +807,9 @@
     padding: 1rem 1.25rem;
     background: var(--bg2);
     border: 1px solid var(--border);
-    transition: border-color 0.2s, color 0.2s;
+    transition: border-color 0.2s, color 0.2s, box-shadow 0.2s;
   }
-  .contact-link:hover { border-color: rgba(0,255,159,0.4); color: var(--green); }
+  .contact-link:hover { border-color: rgba(255,0,43,0.45); color: var(--green); box-shadow: 0 0 12px rgba(255,0,43,0.1); }
 
   .contact-link-icon { color: var(--green); font-size: 1rem; width: 20px; text-align: center; }
 
@@ -848,73 +832,65 @@
     line-height: 1.8;
   }
 
-/* ─── FOOTER RESOURCES ─── */
-.footer-resources {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-  margin-bottom: 2rem;
-  padding-bottom: 2rem;
-  border-bottom: 1px solid var(--border);
-  max-width: 1200px;
-  padding-left: 3rem;
-  padding-right: 3rem;
-  margin-left: auto;
-  margin-right: auto;
-}
+  /* ─── FOOTER ─── */
+  .footer-resources {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border);
+    max-width: 1200px;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
 
-.resource-col h5 {
-  font-family: var(--mono);
-  font-size: 0.6rem;
-  color: var(--green);
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  margin-bottom: 0.75rem;
-}
-.resource-col:last-child {
-  text-align: right;
-}
+  .resource-col h5 {
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    color: var(--green);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+  }
+  .resource-col:last-child { text-align: right; }
+  .resource-col:last-child .resource-links a { justify-content: flex-end; }
 
-.resource-col:last-child .resource-links a {
-  justify-content: flex-end;
-}
-.resource-links {
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-}
+  .resource-links { display: flex; flex-direction: column; gap: 0.35rem; }
 
-.resource-links a {
-  font-family: var(--mono);
-  font-size: 0.9rem; 
-  color: var(--muted);
-  text-decoration: none;
-  letter-spacing: 0.08em;
-  padding: 0.3rem 0;
-  transition: color 0.2s;
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-}
+  .resource-links a {
+    font-family: var(--mono);
+    font-size: 0.9rem;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.08em;
+    padding: 0.3rem 0;
+    transition: color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
 
-.resource-links a::before {
-  content: '//';
-  color: var(--green-dark);
-  font-size: 0.6rem;
-  transition: color 0.2s;
-}
+  .resource-links a::before {
+    content: '//';
+    color: var(--green-dark);
+    font-size: 0.6rem;
+    transition: color 0.2s;
+  }
 
-.resource-links a:hover { color: var(--green); }
-.resource-links a:hover::before { color: var(--green); }
+  .resource-links a:hover { color: var(--green); }
+  .resource-links a:hover::before { color: var(--green); }
 
-.footer-bottom {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 3rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
 
   .footer-left  { font-family: var(--mono); font-size: 0.8rem; color: var(--muted); }
   .footer-right { font-family: var(--mono); font-size: 0.8rem; color: var(--muted); }
@@ -945,14 +921,13 @@
     footer { flex-direction: column; gap: 1rem; text-align: center; }
     .status-bar { display: none; }
   }
-
 </style>
 </head>
 <body>
 
 <!-- NAV -->
 <nav>
-  <div class="nav-logo"><span>~/</span>pran0x</div>
+  <div class="nav-logo"><span>~/</span><a href="#" style="text-decoration: none; color: var(--green);">pran0x</a></div>
   <ul class="nav-links">
     <li><a href="#hof">hall of fame</a></li>
     <li><a href="#about">about</a></li>
@@ -970,14 +945,13 @@
   </h1>
   <p class="hero-title" id="typewriter"></p>
   <p class="hero-desc">
-    Penetration tester and security researcher specializing in web application security, network infrastructure, and vulnerability research. I break things to help build them better.
+    I think like an attacker. My focus is <strong style="color:var(--green);font-weight:400;">offensive security</strong> — breaking systems down methodically, mapping attack surfaces, and chaining vulnerabilities into real impact. Not running tools. Understanding what's underneath them.
   </p>
   <div class="hero-cta">
     <a href="#work" class="btn btn-primary">View My Work</a>
     <a href="#contact" class="btn btn-outline">Get In Touch</a>
   </div>
 
-  <!-- HERO AVATAR — replace src with your actual photo -->
   <div class="hero-avatar-wrap">
     <div class="hero-avatar">
       <div class="hero-avatar-corner corner-tl"></div>
@@ -985,7 +959,6 @@
       <div class="hero-avatar-corner corner-bl"></div>
       <div class="hero-avatar-corner corner-br"></div>
       <div class="hero-avatar-scan"></div>
-      <!-- ── YOUR PHOTO HERE — replace src ── -->
       <img
         class="hero-avatar-img"
         src="https://avatars.githubusercontent.com/u/139096157?v=4"
@@ -1004,7 +977,7 @@
 
 <!-- HALL OF FAME -->
 <section id="hof">
-  <p class="section-label">05 // Hall of Fame</p>
+  <p class="section-label">01 // Hall of Fame</p>
   <h2 class="section-title">Responsible Disclosures</h2>
 
   <div class="hof-intro fade-in">
@@ -1013,15 +986,15 @@
     </p>
     <div class="hof-stats">
       <div class="hof-stat-box">
-        <span class="hof-num">12+</span>
+        <span class="hof-num" id="c1">0</span>
         <span class="hof-lbl">Companies Notified</span>
       </div>
       <div class="hof-stat-box">
-        <span class="hof-num">3</span>
+        <span class="hof-num" id="c2">0</span>
         <span class="hof-lbl">Critical Findings</span>
       </div>
       <div class="hof-stat-box">
-        <span class="hof-num">100%</span>
+        <span class="hof-num" id="c3">0%</span>
         <span class="hof-lbl">Responsible Disclosure</span>
       </div>
     </div>
@@ -1029,27 +1002,27 @@
 
   <div class="companies-grid fade-in">
     <div class="company-card">
-      <div class="c-logo" style="border-color: rgba(0,120,212,0.3);">
-        <img src="https://cdn.vectorstock.com/i/500p/60/05/meta-logo-vector-41876005.jpg" alt="Meta">
+      <div class="c-logo" style="border-color: rgba(255,0,43,0.2);">
+        <img src="https://images.seeklogo.com/logo-png/16/1/adidas-logo-png_seeklogo-168370.png" alt="Adidas">
       </div>
     </div>
     <div class="company-card">
-      <div class="c-logo" style="border-color: rgba(252,76,2,0.3);">
+      <div class="c-logo" style="border-color: rgba(255,0,43,0.2);">
         <img src="https://cdn.mos.cms.futurecdn.net/F3dodJA8ktyWV8J5Q2rVaR.jpg" alt="NASA">
       </div>
     </div>
     <div class="company-card">
-      <div class="c-logo" style="border-color: rgba(0,180,216,0.3);">
+      <div class="c-logo" style="border-color: rgba(255,0,43,0.2);">
         <img src="https://media.designrush.com/inspiration_images/136092/conversions/_1521662324_188_UbisoftLogo-desktop.jpg" alt="Ubisoft">
       </div>
     </div>
     <div class="company-card">
-      <div class="c-logo" style="border-color: rgba(0,120,212,0.3);">
+      <div class="c-logo" style="border-color: rgba(255,0,43,0.2);">
         <img src="https://cdn.dribbble.com/userupload/9750979/file/original-65029aa75ed4d651877a03287b322dc9.png?resize=400x300&vertical=center" alt="Activision">
       </div>
     </div>
     <div class="company-card">
-      <div class="c-logo" style="border-color: rgba(255,153,0,0.3);">
+      <div class="c-logo" style="border-color: rgba(255,0,43,0.2);">
         <img src="https://discovertemplate.com/wp-content/uploads/2024/01/Activision.jpg" alt="Amazon">
       </div>
     </div>
@@ -1062,33 +1035,41 @@
 
 <!-- ABOUT -->
 <section id="about">
-  <p class="section-label">01 // About</p>
+  <p class="section-label">02 // About</p>
   <h2 class="section-title">Who I Am</h2>
 
   <div class="about-grid fade-in">
     <div class="about-text">
-      <p>I'm a security researcher with deep expertise in <strong>penetration testing</strong>, <strong>web application security</strong>, and <strong>network security</strong>. My work sits at the intersection of offensive and defensive security — understanding how attackers think to build more resilient systems.</p>
-      <p>With a background in both red team operations and vulnerability research, I've worked with organizations across fintech, healthcare, and critical infrastructure to identify and remediate high-severity vulnerabilities before adversaries can exploit them.</p>
-      <p>I contribute to the security community through responsible disclosure, CTF competitions, and open-source tooling for the offensive security community.</p>
+      <p>
+        I think like an attacker. My focus is <strong>offensive security</strong> — breaking systems
+        down methodically, mapping attack surfaces, and chaining vulnerabilities into real impact.
+        Not running tools. Understanding what's underneath them.
+      </p>
+      <p>
+        My work centers on <strong>web application security</strong> and penetration testing —
+        rooted in deep enumeration, trust boundary analysis, and adversary simulation.
+        I don't stop at finding a vulnerability. I follow the chain until the full impact is clear.
+      </p>
+      <p>
+        I'm driven by one question: <em style="color:var(--green);">how would an attacker get in?</em> That mindset shapes
+        how I approach every target, every assessment, and every system I touch.
+      </p>
       <div class="certs">
-        <div class="cert-item"><span class="tag">ACTIVE</span> OSCP — Offensive Security Certified Professional</div>
-        <div class="cert-item"><span class="tag">ACTIVE</span> eJPT — eLearnSecurity Junior Penetration Tester</div>
-        <div class="cert-item"><span class="tag">ACTIVE</span> CEH — Certified Ethical Hacker</div>
-        <div class="cert-item"><span class="tag">PURSUING</span> OSWE — Web Expert</div>
+        <div class="cert-item"><span class="tag">ACTIVE</span> CNSP — Certified Network Security Practitioner</div>
       </div>
     </div>
     <div>
       <div class="stats-grid">
         <div class="stat-box">
-          <span class="stat-num">50+</span>
+          <span class="stat-num">2+</span>
           <span class="stat-label">CVEs Reported</span>
         </div>
         <div class="stat-box">
-          <span class="stat-num">120+</span>
+          <span class="stat-num">12+</span>
           <span class="stat-label">Pentest Engagements</span>
         </div>
         <div class="stat-box">
-          <span class="stat-num">$40K+</span>
+          <span class="stat-num">$5K+</span>
           <span class="stat-label">Bug Bounty Earned</span>
         </div>
         <div class="stat-box">
@@ -1102,7 +1083,7 @@
 
 <!-- SKILLS -->
 <section id="skills">
-  <p class="section-label">02 // Skills</p>
+  <p class="section-label">03 // Skills</p>
   <h2 class="section-title">Capabilities</h2>
 
   <div class="skills-container fade-in">
@@ -1220,7 +1201,7 @@
 
 <!-- WORK -->
 <section id="work">
-  <p class="section-label">03 // Work</p>
+  <p class="section-label">04 // Work</p>
   <h2 class="section-title">Research & Findings</h2>
 
   <div class="projects-grid fade-in">
@@ -1332,7 +1313,7 @@
 
 <!-- CONTACT -->
 <section id="contact">
-  <p class="section-label">04 // Contact</p>
+  <p class="section-label">05 // Contact</p>
   <h2 class="section-title">Get In Touch</h2>
 
   <div class="contact-layout fade-in">
@@ -1379,7 +1360,6 @@
 </section>
 
 <!-- FOOTER -->
-<!-- FOOTER -->
 <footer>
   <div class="footer-resources">
     <div class="resource-col">
@@ -1405,48 +1385,77 @@
   </div>
   <div class="footer-bottom">
     <span class="footer-left">© 2026 pran0x // All rights reserved</span>
-    <span class="footer-right">Built with &lt;/&gt; and paranoia</span>
+    <span class="footer-right">Built with &lt;/&gt; and <a href="#" style="text-decoration: none; color: var(--green);">paranoia</a></span>
   </div>
 </footer>
 
 <script>
-  const phrases = [
-    'Penetration Tester',
-    'Web Security Researcher',
-    'Network Security Engineer',
-    'Vulnerability Hunter',
-    'Red Team Operator'
-  ];
-  let pIdx = 0, cIdx = 0, deleting = false;
-  const el = document.getElementById('typewriter');
+  document.addEventListener('DOMContentLoaded', function () {
 
-  function type() {
-    const cur = phrases[pIdx];
-    if (!deleting) {
-      el.innerHTML = cur.slice(0, cIdx + 1) + '<span class="cursor"></span>';
-      cIdx++;
-      if (cIdx === cur.length) { deleting = true; setTimeout(type, 1800); return; }
-    } else {
-      el.innerHTML = cur.slice(0, cIdx - 1) + '<span class="cursor"></span>';
-      cIdx--;
-      if (cIdx === 0) { deleting = false; pIdx = (pIdx + 1) % phrases.length; }
+    // ─── Typewriter ───
+    const phrases = [
+      'Penetration Tester',
+      'Web Security Researcher',
+      'Network Security Engineer',
+      'Vulnerability Hunter',
+      'Red Team Operator'
+    ];
+    let pIdx = 0, cIdx = 0, deleting = false;
+    const twEl = document.getElementById('typewriter');
+
+    function type() {
+      const cur = phrases[pIdx];
+      if (!deleting) {
+        twEl.innerHTML = cur.slice(0, cIdx + 1) + '<span class="cursor"></span>';
+        cIdx++;
+        if (cIdx === cur.length) { deleting = true; setTimeout(type, 1800); return; }
+      } else {
+        twEl.innerHTML = cur.slice(0, cIdx - 1) + '<span class="cursor"></span>';
+        cIdx--;
+        if (cIdx === 0) { deleting = false; pIdx = (pIdx + 1) % phrases.length; }
+      }
+      setTimeout(type, deleting ? 45 : 85);
     }
-    setTimeout(type, deleting ? 45 : 85);
-  }
-  type();
+    type();
 
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    // ─── Fade-in on scroll ───
+    const fadeObserver = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in').forEach(el => fadeObserver.observe(el));
 
-  // auto scroll to top on every page load
-  // window.onbeforeunload = function() {
-  //   window.scrollTo(0, 0);
-  // };
+    // ─── Counter animation ───
+    function animateCounter(el, target, suffix, duration) {
+      const start = performance.now();
+      function update(now) {
+        const progress = Math.min((now - start) / duration, 1);
+        const ease = 1 - Math.pow(1 - progress, 3);
+        el.textContent = Math.round(ease * target) + suffix;
+        if (progress < 1) requestAnimationFrame(update);
+      }
+      requestAnimationFrame(update);
+    }
 
-  // history.scrollRestoration = 'manual';
-  // window.scrollTo({ top: 0, behavior: 'instant' });
+    const stats = [
+      { id: 'c1', target: 12, suffix: '+', duration: 1600 },
+      { id: 'c2', target: 3,  suffix: '',  duration: 1200 },
+      { id: 'c3', target: 100, suffix: '%', duration: 1800 },
+    ];
+
+    const container = document.querySelector('.hof-stats');
+    if (container) {
+      const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            stats.forEach(s => animateCounter(document.getElementById(s.id), s.target, s.suffix, s.duration));
+            counterObserver.disconnect();
+          }
+        });
+      }, { threshold: 0.3 });
+      counterObserver.observe(container);
+    }
+
+  });
 </script>
 </body>
 </html>
