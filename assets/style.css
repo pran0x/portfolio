@@ -631,7 +631,81 @@
     box-shadow: 0 0 8px rgba(255,0,43,0.5);
   }
   @keyframes fillBar { from { width: 0 !important; } }
+/* ----CERT------ */
 
+  .cert-logo {
+    width: var(--logo-size);
+    height: var(--logo-size);
+    /* border: 1px solid; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background: rgba(255,255,255,0.06); */
+    border-radius: 12px;
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+    transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+    cursor: pointer;
+  }
+
+  .cert-logo:hover {
+    /* border-color: var(--green) !important; */
+    /* box-shadow: 0 0 20px rgba(255,0,43,0.35), 0 0 40px rgba(255,0,43,0.12); */
+    transform: translateY(-6px) scale(1.06);
+  }
+
+  .cert-logo::after {
+    content: '';
+    position: absolute;
+    top: -100%; left: 0;
+    width: 100%; height: 100%;
+    /* background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(255,0,43,0.2) 50%,
+      transparent 100%
+    ); */
+    transition: top 0.45s ease;
+    pointer-events: none;
+    z-index: 2;
+  }
+  .cert-logo:hover::after { top: 100%; }
+
+  .cert-logo img {
+    width: 100%; height: 100%;
+    object-fit:contain;
+    display: block;
+    transition: transform 0.35s ease, filter 0.35s ease;
+    filter: grayscale(30%) brightness(0.9);
+  }
+.cert-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  
+  background: rgba(0, 0, 0, 0.75);
+  color: #fff;
+  font-size: 14px;
+  padding: 8px;
+  text-align: center;
+
+  opacity: 0;
+  transform: translateY(100%);
+  transition: 0.3s ease;
+
+  z-index: 3;
+}
+
+/* Show on hover */
+.cert-logo:hover .cert-overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+.cert-logo:hover img {
+  filter: blur(2px) brightness(0.6);
+}
   /* ─── PROJECTS ─── */
   .projects-grid {
     margin-top: 3rem;
