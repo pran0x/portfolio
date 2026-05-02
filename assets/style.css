@@ -1056,6 +1056,7 @@
   }
 
   .footer-left  { font-family: var(--mono); font-size: 0.8rem; color: var(--muted); }
+  .footer-center { font-family: var(--mono); font-size: 0.8rem; color: var(--muted); }
   .footer-right { font-family: var(--mono); font-size: 0.8rem; color: var(--muted); }
 
   /* ─── ANIMATIONS ─── */
