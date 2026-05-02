@@ -561,6 +561,103 @@
     gap: 1.5rem;
   }
 
+  /* ─── TOOLS ─── */
+  .tools-grid {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1rem;
+  }
+
+  .tool-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    padding: 1.25rem;
+    text-align: center;
+    transition: transform 0.2s, border-color 0.2s;
+  }
+
+  .tool-card h4 {
+    font-family: var(--display);
+    font-size: 1rem;
+    font-weight: 600;
+    color: #e8f4ff;
+    margin-bottom: 0.5rem;
+  }
+
+  .tool-card p {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--muted);
+    line-height: 1.4;
+  }
+
+  .tool-card:hover { transform: translateY(-6px); border-color: rgba(255,0,43,0.35); }
+
+  /* Image support inside tool cards */
+  .tool-card .tool-img {
+    display: block;
+    width: auto;
+    height: 80px;
+    max-height: 100px;
+    object-fit: contain;
+    margin: 0 auto;
+    filter: grayscale(10%) brightness(1);
+    transition: transform 0.18s ease, filter 0.18s ease;
+  }
+
+  .tool-card:hover .tool-img { transform: scale(1.06); filter: none; }
+
+  /* Tooltip on tool images */
+  .tool-card.img-only {
+    position: relative;
+  }
+
+  .tool-card.img-only.show-tooltip::after {
+    content: attr(data-tool-name);
+    position: absolute;
+    bottom: -45px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--green);
+    color: var(--bg);
+    padding: 0.5rem 0.75rem;
+    border-radius: 4px;
+    font-family: var(--display);
+    font-size: 0.85rem;
+    font-weight: 600;
+    white-space: nowrap;
+    z-index: 1000;
+    animation: fadeInTooltip 0.3s ease forwards;
+  }
+
+  @keyframes fadeInTooltip {
+    from { opacity: 0; transform: translateX(-50%) translateY(-5px); }
+    to { opacity: 1; transform: translateX(-50%) translateY(0); }
+  }
+
+  /* When a card has `img-only`, hide text and show only image */
+  .tool-card.img-only h4,
+  .tool-card.img-only p {
+    display: none;
+  }
+
+  .tool-card.img-only { padding: 0; background: transparent; border: none; }
+  /* Logo-strip layout when the whole section is image-only */
+  #tools.img-only > .section-label,
+  #tools.img-only > h2.section-title {
+    display: none;
+  }
+  #tools.img-only .tools-grid {
+    display: flex;
+    gap: 1.25rem;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 0.5rem 0;
+  }
+  #tools.img-only .tool-card.img-only { display: flex; align-items: center; justify-content: center; }
+
   .skill-card {
     background: var(--bg2);
     border: 1px solid var(--border);

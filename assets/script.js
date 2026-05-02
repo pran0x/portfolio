@@ -63,4 +63,24 @@
       counterObserver.observe(container);
     }
 
+    // ─── Tool Image Tooltip (2s delay on hover) ───
+    const toolCards = document.querySelectorAll('.tool-card.img-only');
+    const tooltipTimers = new Map();
+
+    toolCards.forEach(card => {
+      card.addEventListener('mouseenter', () => {
+        const timer = setTimeout(() => {
+          card.classList.add('show-tooltip');
+        }, 2000);
+        tooltipTimers.set(card, timer);
+      });
+
+      card.addEventListener('mouseleave', () => {
+        const timer = tooltipTimers.get(card);
+        if (timer) clearTimeout(timer);
+        card.classList.remove('show-tooltip');
+        tooltipTimers.delete(card);
+      });
+    });
+
   });
