@@ -86,36 +86,17 @@
     <p style="color: var(--muted); font-family: var(--mono); font-size: 0.8rem; margin-bottom: 2.5rem;">
       Vulnerabilities responsibly disclosed to organizations worldwide. All details withheld per coordinated disclosure agreements.
     </p>
-    <div class="hof-stats">
-      <div class="hof-stat-box">
-        <span class="hof-num" id="c1">0</span>
-        <span class="hof-lbl">Companies Notified</span>
-      </div>
-      <div class="hof-stat-box">
-        <span class="hof-num" id="c2">0</span>
-        <span class="hof-lbl">Critical Findings</span>
-      </div>
-      <div class="hof-stat-box">
-        <span class="hof-num" id="c3">0%</span>
-        <span class="hof-lbl">Responsible Disclosure</span>
-      </div>
-    </div>
   </div>
 
  <div class="companies-grid fade-in">
-    <div class="company-card">
+      <div class="company-card">
       <div class="c-logo" style="border-color: rgba(255,0,43,0.2);">
-        <img src="https://images.seeklogo.com/logo-png/16/1/adidas-logo-png_seeklogo-168370.png" alt="Adidas">
+        <img src="https://logos.bugcrowdusercontent.com/logos/19cf/114a/338edf8d/333bd4940640af66ef6757487fcf0da1_1662966768718.jpeg" alt="eToro">
       </div>
     </div>
     <div class="company-card">
       <div class="c-logo" style="border-color: rgba(255,0,43,0.2);">
-        <img src="https://media.designrush.com/inspiration_images/136092/conversions/_1521662324_188_UbisoftLogo-desktop.jpg" alt="Ubisoft">
-      </div>
-    </div>
-    <div class="company-card">
-      <div class="c-logo" style="border-color: rgba(255,0,43,0.2);">
-        <img src="https://cdn.dribbble.com/userupload/9750979/file/original-65029aa75ed4d651877a03287b322dc9.png?resize=400x300&vertical=center" alt="Activision">
+        <img src="https://logos.bugcrowdusercontent.com/logos/ccbe/608f/62bf48f2/98ba4bbfd8cdc5179065006d540a9ba0_settleco_logo.jpeg" alt="Ubisoft">
       </div>
     </div>
   </div>
@@ -144,143 +125,8 @@
         I started in security through CTFs and bug bounties, but quickly realized my passion was in the research itself — understanding how things break, not just that they do. This led me to focus on penetration testing and vulnerability research as a career.
       </p>
       </div>
-    <!-- <div>
-      <div class="stats-grid">
-        <div class="stat-box">
-          <span class="stat-num">2+</span>
-          <span class="stat-label">CVEs Reported</span>
-        </div>
-        <div class="stat-box">
-          <span class="stat-num">12+</span>
-          <span class="stat-label">Pentest Engagements</span>
-        </div>
-        <div class="stat-box">
-          <span class="stat-num">$2K+</span>
-          <span class="stat-label">Bug Bounty Earned</span>
-        </div>
-        <div class="stat-box">
-          <span class="stat-num">Top 1%</span>
-          <span class="stat-label">TryHackMe Rank</span>
-        </div>
-      </div>
-    </div> -->
   </div>
 </section>
-
-<!-- Template for future work section, currently commented out. Uncomment and fill in details as needed. -->
-<!-- WORK -->
-<!-- <section id="work">
-  <p class="section-label">04 // Work</p>
-  <h2 class="section-title">Research & Findings</h2>
-
-  <div class="projects-grid fade-in">
-    <div class="project-card featured">
-      <div>
-        <div class="project-header">
-          <span class="project-type">CVE Research</span>
-          <span class="project-severity sev-critical">CRITICAL — CVSS 9.8</span>
-        </div>
-        <h3>Auth Bypass in Enterprise SSO Platform</h3>
-        <p>Discovered a critical authentication bypass vulnerability in a widely-deployed enterprise SSO platform affecting 10,000+ organizations. The flaw allowed full account takeover via a JWT signature confusion attack without valid credentials.</p>
-        <div class="project-tags">
-          <span class="tag-item">JWT</span>
-          <span class="tag-item">Auth Bypass</span>
-          <span class="tag-item">CVE-2024-XXXX</span>
-          <span class="tag-item">Responsible Disclosure</span>
-          <span class="tag-item">$12,000 Bounty</span>
-        </div>
-      </div>
-      <div>
-        <div class="terminal">
-          <div class="terminal-bar">
-            <div class="t-dot t-dot-r"></div>
-            <div class="t-dot t-dot-y"></div>
-            <div class="t-dot t-dot-g"></div>
-            <span class="terminal-title">exploit.py</span>
-          </div>
-          <div class="terminal-body">
-<span class="t-comment"># JWT alg:none confusion attack</span><br>
-<span class="t-prompt">$</span> <span class="t-cmd">python3 exploit.py --target https://target.sso/</span><br>
-<br>
-<span class="t-output">[*] Fetching JWT from /api/auth...</span><br>
-<span class="t-output">[*] Detected algorithm: RS256</span><br>
-<span class="t-output">[!] Testing alg confusion...</span><br>
-<span class="t-output"><span class="t-green">[+] Vulnerable! Accepted unsigned token</span></span><br>
-<span class="t-output"><span class="t-green">[+] Access granted as: admin@corp.internal</span></span><br>
-<span class="t-output"><span class="t-red">[!] CRITICAL — Report immediately</span></span>
-          </div>
-        </div>
-      </div>
-      <span class="project-number">01</span>
-    </div>
-
-    <div class="project-card">
-      <div class="project-header">
-        <span class="project-type">Bug Bounty</span>
-        <span class="project-severity sev-high">HIGH — CVSS 8.1</span>
-      </div>
-      <h3>SSRF to Internal AWS Metadata</h3>
-      <p>Chained an open redirect with an SSRF vulnerability to exfiltrate AWS EC2 instance metadata including IAM credentials, leading to full cloud account compromise.</p>
-      <div class="project-tags">
-        <span class="tag-item">SSRF</span>
-        <span class="tag-item">AWS</span>
-        <span class="tag-item">Open Redirect</span>
-        <span class="tag-item">Cloud</span>
-      </div>
-      <span class="project-number">02</span>
-    </div>
-
-    <div class="project-card">
-      <div class="project-header">
-        <span class="project-type">Network Pentest</span>
-        <span class="project-severity sev-critical">CRITICAL</span>
-      </div>
-      <h3>AD Domain Takeover via Kerberoasting</h3>
-      <p>Full Active Directory domain compromise achieved during red team engagement by chaining Kerberoasting, password spraying, and DCSync attack to gain Domain Admin.</p>
-      <div class="project-tags">
-        <span class="tag-item">Active Directory</span>
-        <span class="tag-item">Kerberoasting</span>
-        <span class="tag-item">DCSync</span>
-        <span class="tag-item">Red Team</span>
-      </div>
-      <span class="project-number">03</span>
-    </div>
-
-    <div class="project-card">
-      <div class="project-header">
-        <span class="project-type">Open Source Tool</span>
-        <span class="project-severity sev-medium">PUBLIC</span>
-      </div>
-      <h3>AutoRecon-Web — Automated Web Recon</h3>
-      <p>Built an open-source automated web reconnaissance framework integrating 30+ tools into a unified pipeline. 2,000+ GitHub stars. Used by CTF players and pentesters worldwide.</p>
-      <div class="project-tags">
-        <span class="tag-item">Python</span>
-        <span class="tag-item">OSS</span>
-        <span class="tag-item">Automation</span>
-        <span class="tag-item">2K+ Stars</span>
-      </div>
-      <span class="project-number">04</span>
-    </div>
-
-    <div class="project-card">
-      <div class="project-header">
-        <span class="project-type">CTF</span>
-        <span class="project-severity sev-medium">1ST PLACE</span>
-      </div>
-      <h3>CTF Champion — NationalCyberSec BD 2024</h3>
-      <p>Captured first place in the National Cybersecurity CTF Bangladesh 2024, solving 47 of 50 challenges across web, forensics, cryptography, and binary exploitation.</p>
-      <div class="project-tags">
-        <span class="tag-item">CTF</span>
-        <span class="tag-item">Web</span>
-        <span class="tag-item">Crypto</span>
-        <span class="tag-item">Pwn</span>
-      </div>
-      <span class="project-number">05</span>
-    </div>
-  </div>
-</section> -->
-
-
 <section id="contact">
   <p class="section-label">05 // Contact</p>
   <h2 class="section-title">Get In Touch</h2>
@@ -295,14 +141,6 @@
           <span class="contact-link-icon">✉</span>
           pran0x(attherate)wearehackerone.com
         </a>
-        <a href="https://linkedin.com/in/pran0x" class="contact-link">
-          <span class="contact-link-icon">◈</span>
-          linkedin@pran0x
-        </a>
-        <!-- <a href="https://hackerone.com/revolver" class="contact-link">
-          <span class="contact-link-icon">◎</span>
-          HackerOne Profile
-        </a> -->
       </div>
     </div>
   </div>
@@ -314,9 +152,8 @@
     <div class="resource-col">
       <h5>// out of scope</h5>
       <div class="resource-links">
-        <a href="https://profile.hackthebox.com/profile/019d59a9-289d-7244-8ed2-9b63124f0587">HTB@pran0x</a>
+        <a href="https://medium.com/@pran0x">Medium@pran0x</a>
         <a href="https://hackalypse.live">Hackalypse@pran0x</a>
-        <a href="https://cybersecurity.club.uttara.ac.bd/about.html?member=Pranto%20Kumar%20Shil(Pritom)&position=Organizing%20Secretary&year=2025-2026&image=https%3A%2F%2Fcybersecurity.club.uttara.ac.bd%2Fassets%2Fimages%2F2025eboard%2Fpran0x.jpg">Club@pran0x</a>
       </div>
     </div>
     <div class="resource-col">
@@ -324,13 +161,13 @@
       <div class="resource-links">
         <a href="https://twitter.com/pran0x">X@pran0x</a>
         <a href="https://github.com/pran0x">GitHub@pran0x</a>
-        <a href="https://medium.com/@pran0x">Medium@pran0x</a>
+        <a href="https://linkedin.com/in/pran0x">LinkedIn@pran0x</a>
       </div>
     </div>
   </div>
   <div class="footer-bottom">
     
-    <span class="footer-left">Last Updated: 07 June 2026</span>
+    <span class="footer-left">Last Updated: 11 NOV 2026</span>
     <span class="footer-left">© 2026 pran0x // All rights reserved</span>
     <span class="footer-right">Built with<a href="https://www.anthropic.com/" style="text-decoration: none; color: var(--green);"> &lt;/&gt;</a> Anthropic </span>
   </div>
